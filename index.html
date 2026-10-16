@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Strida One – The smartwatch built for runners</title>
+  <meta name="description" content="Strida One is a lightweight GPS smartwatch with a 14-day battery, accurate heart-rate tracking and training plans that adapt to you." />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet" />
+
+  <!-- Tailwind CSS (CDN) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            mist: "#EEF3F8",
+            ink: "#0F1B2D",
+            slate2: "#5B6B80",
+            coral: "#FF5A4E",
+            teal2: "#0E8A85",
+          },
+          fontFamily: {
+            display: ['"Bricolage Grotesque"', "system-ui", "sans-serif"],
+            body: ["Figtree", "system-ui", "sans-serif"],
+          },
+        },
+      },
+    };
+  </script>
+
+  <!-- Custom CSS3 (works alongside Tailwind) -->
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body class="font-body bg-mist text-ink antialiased">
+
+  <!-- ============ 1. NAVIGATION BAR ============ -->
+  <header class="sticky top-0 z-50 bg-mist/90 backdrop-blur border-b border-ink/10">
+    <nav class="mx-auto flex max-w-6xl items-center justify-between px-5 py-4" aria-label="Main navigation">
+      <a href="#home" class="font-display text-2xl font-extrabold tracking-tight">
+        Strida<span class="text-coral">.</span>
+      </a>
+
+      <!-- Desktop links (Flexbox) -->
+      <ul class="hidden items-center gap-8 text-sm font-medium md:flex">
+        <li><a class="nav-link" href="#features">Features</a></li>
+        <li><a class="nav-link" href="#benefits">Why Strida</a></li>
+        <li><a class="nav-link" href="#reviews">Reviews</a></li>
+        <li><a class="nav-link" href="#pricing">Pricing</a></li>
+        <li>
+          <a href="#pricing" class="rounded-full bg-ink px-5 py-2 text-white transition hover:bg-coral">Buy now</a>
+        </li>
+      </ul>
+
+      <!-- Mobile menu button -->
+      <button id="menuBtn" class="md:hidden rounded-lg p-2 hover:bg-ink/5" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
+        <svg class="h-6 w-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+          <path stroke-linecap="round" d="M4 7h16M4 12h16M4 17h16" />
+        </svg>
+      </button>
+    </nav>
+
+    <!-- Mobile menu -->
+    <div id="mobileMenu" class="hidden border-t border-ink/10 bg-mist md:hidden">
+      <ul class="flex flex-col gap-1 px-5 py-3 text-base font-medium">
+        <li><a class="block rounded-lg px-3 py-3 hover:bg-ink/5" href="#features">Features</a></li>
+        <li><a class="block rounded-lg px-3 py-3 hover:bg-ink/5" href="#benefits">Why Strida</a></li>
+        <li><a class="block rounded-lg px-3 py-3 hover:bg-ink/5" href="#reviews">Reviews</a></li>
+        <li><a class="block rounded-lg px-3 py-3 hover:bg-ink/5" href="#pricing">Pricing</a></li>
+        <li><a class="mt-2 block rounded-full bg-ink px-3 py-3 text-center text-white" href="#pricing">Buy now</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- ============ 2. HERO SECTION ============ -->
+    <section id="home" class="hero-bg">
+      <div class="mx-auto grid max-w-6xl items-center gap-12 px-5 py-16 md:py-24 lg:grid-cols-2">
+        <div>
+          <p class="mb-4 inline-block rounded-full bg-white px-4 py-1 text-sm font-medium text-teal2 shadow-sm">
+            New: Strida One with 14-day battery
+          </p>
+          <h1 class="font-display text-4xl font-extrabold leading-[1.05] tracking-tight sm:text-5xl lg:text-6xl">
+            Run further. Charge less. Know exactly how you're doing.
+          </h1>
+          <p class="mt-6 max-w-xl text-lg leading-relaxed text-slate2">
+            Strida One is a 32 g GPS smartwatch that tracks your pace, heart rate and recovery, then builds a weekly
+            running plan that fits your schedule. No daily charging, no clutter.
+          </p>
+
+          <div class="mt-8 flex flex-col gap-3 sm:flex-row">
+            <a href="#pricing" class="rounded-full bg-coral px-8 py-4 text-center font-semibold text-white shadow-lg shadow-coral/30 transition hover:-translate-y-0.5 hover:bg-ink">
+              Buy now – $149
+            </a>
+            <a href="#features" class="rounded-full border-2 border-ink px-8 py-4 text-center font-semibold transition hover:bg-ink hover:text-white">
+              Learn more
+            </a>
+          </div>
+          <p class="mt-5 text-sm text-slate2">30-day free returns · 2-year warranty</p>
+        </div>
+
+        <!-- Product image (inline SVG, no external image needed) -->
+        <div class="flex justify-center">
+          <svg class="w-64 drop-shadow-2xl sm:w-80" viewBox="0 0 320 440" role="img" aria-label="Strida One smartwatch showing a heart rate of 142 beats per minute and a ring tracking a 10 kilometre run goal">
+            <!-- straps -->
+            <rect x="95" y="0" width="130" height="120" rx="30" fill="#0F1B2D" />
+            <rect x="95" y="320" width="130" height="120" rx="30" fill="#0F1B2D" />
+            <circle cx="160" cy="400" r="5" fill="#EEF3F8" opacity=".5" />
+            <circle cx="160" cy="370" r="5" fill="#EEF3F8" opacity=".5" />
+            <!-- body -->
+            <rect x="40" y="90" width="240" height="260" rx="64" fill="#1c2c45" />
+            <rect x="52" y="102" width="216" height="236" rx="54" fill="#0A1220" />
+            <!-- side button -->
+            <rect x="276" y="170" width="10" height="46" rx="5" fill="#FF5A4E" />
+            <!-- progress ring -->
+            <circle cx="160" cy="220" r="78" fill="none" stroke="#1c2c45" stroke-width="12" />
+            <circle cx="160" cy="220" r="78" fill="none" stroke="#FF5A4E" stroke-width="12" stroke-linecap="round"
+                    stroke-dasharray="490" stroke-dashoffset="150" transform="rotate(-90 160 220)" />
+            <!-- text -->
+            <text x="160" y="205" text-anchor="middle" font-family="Bricolage Grotesque, sans-serif" font-weight="800" font-size="50" fill="#fff">142</text>
+            <text x="160" y="228" text-anchor="middle" font-family="Figtree, sans-serif" font-size="14" fill="#9fb0c6">bpm</text>
+            <text x="160" y="258" text-anchor="middle" font-family="Figtree, sans-serif" font-weight="600" font-size="15" fill="#0E8A85">6.8 / 10 km</text>
+          </svg>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 3. FEATURES SECTION (CSS Grid) ============ -->
+    <section id="features" class="bg-white">
+      <div class="mx-auto max-w-6xl px-5 py-16 md:py-24">
+        <h2 class="font-display text-3xl font-extrabold tracking-tight sm:text-4xl">Everything a runner needs on the wrist</h2>
+        <p class="mt-3 max-w-2xl text-lg text-slate2">Five features we spent two years getting right, and nothing we don't.</p>
+
+        <div class="features-grid mt-12">
+          <!-- Feature 1 (large) -->
+          <article class="feature-card feature-wide">
+            <div class="icon-box bg-coral/10 text-coral">
+              <svg class="h-6 w-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M12 21s-7-4.5-9.5-9A5.5 5.5 0 0112 6a5.5 5.5 0 019.5 6c-2.5 4.5-9.5 9-9.5 9z"/></svg>
+            </div>
+            <h3 class="font-display text-xl font-bold">Heart rate that holds up at speed</h3>
+            <p class="mt-2 text-slate2">A 6-sensor optical array stays accurate through sprints, sweat and cold weather. It reads every second, not every ten.</p>
+          </article>
+
+          <!-- Feature 2 -->
+          <article class="feature-card">
+            <div class="icon-box bg-teal2/10 text-teal2">
+              <svg class="h-6 w-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M12 2l3 7h7l-5.5 4.5L18.5 21 12 16.8 5.5 21l2-7.5L2 9h7z"/></svg>
+            </div>
+            <h3 class="font-display text-xl font-bold">Dual-band GPS</h3>
+            <p class="mt-2 text-slate2">Locks on in under 5 seconds and keeps your route clean between tall buildings.</p>
+          </article>
+
+          <!-- Feature 3 -->
+          <article class="feature-card">
+            <div class="icon-box bg-coral/10 text-coral">
+              <svg class="h-6 w-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="7" width="16" height="10" rx="2"/><path stroke-linecap="round" d="M21 11v2M7 10v4M11 10v4"/></svg>
+            </div>
+            <h3 class="font-display text-xl font-bold">14-day battery</h3>
+            <p class="mt-2 text-slate2">Charge on Sunday and forget about it. 30 hours of GPS tracking when you need it.</p>
+          </article>
+
+          <!-- Feature 4 -->
+          <article class="feature-card">
+            <div class="icon-box bg-teal2/10 text-teal2">
+              <svg class="h-6 w-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M3 17l5-5 4 4 8-9"/></svg>
+            </div>
+            <h3 class="font-display text-xl font-bold">Adaptive training plans</h3>
+            <p class="mt-2 text-slate2">Tell it your race date. The plan changes when you miss a run or sleep badly.</p>
+          </article>
+
+          <!-- Feature 5 -->
+          <article class="feature-card">
+            <div class="icon-box bg-coral/10 text-coral">
+              <svg class="h-6 w-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M12 3C8 8 6 11 6 14a6 6 0 0012 0c0-3-2-6-6-11z"/></svg>
+            </div>
+            <h3 class="font-display text-xl font-bold">Water resistant to 50 m</h3>
+            <p class="mt-2 text-slate2">Rain, rivers and the pool. Strida One handles all of it.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 4. BENEFITS SECTION (Flexbox) ============ -->
+    <section id="benefits" class="bg-ink text-white">
+      <div class="mx-auto flex max-w-6xl flex-col gap-12 px-5 py-16 md:py-24 lg:flex-row lg:items-start lg:gap-20">
+        <div class="lg:w-5/12">
+          <h2 class="font-display text-3xl font-extrabold leading-tight tracking-tight sm:text-4xl">
+            Built to make you a more consistent runner
+          </h2>
+          <p class="mt-4 text-lg text-white/70">
+            Most people don't quit running because it's hard. They quit because they lose the habit.
+            Strida is designed around keeping it.
+          </p>
+        </div>
+
+        <ul class="flex flex-col gap-8 lg:w-7/12">
+          <li class="benefit-item">
+            <h3 class="font-display text-xl font-bold">Know when to push and when to rest</h3>
+            <p class="mt-1 text-white/70">Your recovery score combines sleep, resting heart rate and training load, so a hard day never turns into an injury.</p>
+          </li>
+          <li class="benefit-item">
+            <h3 class="font-display text-xl font-bold">Light enough to forget you're wearing it</h3>
+            <p class="mt-1 text-white/70">At 32 g with a soft silicone strap, it's comfortable on a 5 km jog and a 5 am alarm alike.</p>
+          </li>
+          <li class="benefit-item">
+            <h3 class="font-display text-xl font-bold">Works with the apps you already use</h3>
+            <p class="mt-1 text-white/70">Syncs your runs to Strava, Google Fit and Apple Health. Android and iPhone both supported.</p>
+          </li>
+          <li class="benefit-item">
+            <h3 class="font-display text-xl font-bold">Your data stays yours</h3>
+            <p class="mt-1 text-white/70">Health data is encrypted on the watch and never sold. Export or delete it any time.</p>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ============ 5. TESTIMONIALS ============ -->
+    <section id="reviews" class="bg-mist">
+      <div class="mx-auto max-w-6xl px-5 py-16 md:py-24">
+        <h2 class="font-display text-3xl font-extrabold tracking-tight sm:text-4xl">Runners are talking</h2>
+        <p class="mt-3 text-lg text-slate2">Rated 4.8 out of 5 by early owners.</p>
+
+        <div class="mt-12 grid gap-6 md:grid-cols-3">
+          <figure class="review-card">
+            <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
+            <blockquote class="mt-3 text-lg leading-relaxed">
+              I trained for my first half marathon with it. The plan adjusted when I got sick and I still finished in 2:04.
+            </blockquote>
+            <figcaption class="mt-6 flex items-center gap-3">
+              <span class="avatar bg-coral">AR</span>
+              <span><strong class="block">Ananya R.</strong><span class="text-sm text-slate2">Bengaluru</span></span>
+            </figcaption>
+          </figure>
+
+          <figure class="review-card">
+            <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
+            <blockquote class="mt-3 text-lg leading-relaxed">
+              Two weeks on one charge is real. I took it on a trek and the GPS track was spot on.
+            </blockquote>
+            <figcaption class="mt-6 flex items-center gap-3">
+              <span class="avatar bg-teal2">KM</span>
+              <span><strong class="block">Karthik M.</strong><span class="text-sm text-slate2">Hubballi</span></span>
+            </figcaption>
+          </figure>
+
+          <figure class="review-card">
+            <div class="stars" aria-label="4 out of 5 stars">★★★★☆</div>
+            <blockquote class="mt-3 text-lg leading-relaxed">
+              Very comfortable and the recovery score is useful. I'd love more watch faces, but that's my only complaint.
+            </blockquote>
+            <figcaption class="mt-6 flex items-center gap-3">
+              <span class="avatar bg-ink">SD</span>
+              <span><strong class="block">Sneha D.</strong><span class="text-sm text-slate2">Belagavi</span></span>
+            </figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 6. PRICING / CTA ============ -->
+    <section id="pricing" class="bg-white">
+      <div class="mx-auto max-w-6xl px-5 py-16 md:py-24">
+        <h2 class="text-center font-display text-3xl font-extrabold tracking-tight sm:text-4xl">Pick your Strida</h2>
+        <p class="mx-auto mt-3 max-w-xl text-center text-lg text-slate2">Same watch in every box. Choose the bundle that suits you.</p>
+
+        <div class="mt-12 grid items-stretch gap-6 md:grid-cols-3">
+          <div class="price-card">
+            <h3 class="font-display text-xl font-bold">Essential</h3>
+            <p class="mt-4 font-display text-5xl font-extrabold">$149</p>
+            <ul class="mt-6 flex-1 space-y-3 text-slate2">
+              <li>Strida One watch</li>
+              <li>Silicone strap</li>
+              <li>USB-C charging cable</li>
+              <li>2-year warranty</li>
+            </ul>
+            <a href="#" class="mt-8 block rounded-full border-2 border-ink py-3 text-center font-semibold transition hover:bg-ink hover:text-white">Choose Essential</a>
+          </div>
+
+          <div class="price-card price-featured">
+            <span class="absolute -top-3 left-1/2 -translate-x-1/2 rounded-full bg-coral px-4 py-1 text-xs font-semibold text-white">Most popular</span>
+            <h3 class="font-display text-xl font-bold">Runner</h3>
+            <p class="mt-4 font-display text-5xl font-extrabold">$179</p>
+            <ul class="mt-6 flex-1 space-y-3 text-white/80">
+              <li>Everything in Essential</li>
+              <li>Extra woven strap</li>
+              <li>6 months of Strida Coach</li>
+              <li>Free race-day plan</li>
+            </ul>
+            <a href="#" class="mt-8 block rounded-full bg-coral py-3 text-center font-semibold text-white transition hover:bg-white hover:text-ink">Choose Runner</a>
+          </div>
+
+          <div class="price-card">
+            <h3 class="font-display text-xl font-bold">Team</h3>
+            <p class="mt-4 font-display text-5xl font-extrabold">$649</p>
+            <ul class="mt-6 flex-1 space-y-3 text-slate2">
+              <li>5 Strida One watches</li>
+              <li>Shared team dashboard</li>
+              <li>12 months of Strida Coach</li>
+              <li>Priority support</li>
+            </ul>
+            <a href="#" class="mt-8 block rounded-full border-2 border-ink py-3 text-center font-semibold transition hover:bg-ink hover:text-white">Choose Team</a>
+          </div>
+        </div>
+
+        <!-- Final call to action -->
+        <div class="mt-16 flex flex-col items-center gap-4 rounded-3xl bg-coral px-6 py-12 text-center text-white">
+          <h3 class="font-display text-2xl font-extrabold sm:text-3xl">Your next run starts with a better watch.</h3>
+          <p class="max-w-xl text-white/90">Order today and it ships free in 3–5 days. Don't love it? Send it back within 30 days.</p>
+          <a href="#" class="mt-2 rounded-full bg-ink px-10 py-4 font-semibold text-white transition hover:bg-white hover:text-ink">Get Strida One</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============ 7. FOOTER ============ -->
+  <footer class="bg-ink text-white/80">
+    <div class="mx-auto grid max-w-6xl gap-10 px-5 py-14 sm:grid-cols-2 lg:grid-cols-4">
+      <div>
+        <p class="font-display text-2xl font-extrabold text-white">Strida<span class="text-coral">.</span></p>
+        <p class="mt-3 text-sm">Smartwatches for people who run. This is a student project and Strida is a fictional brand.</p>
+      </div>
+
+      <div>
+        <h4 class="font-display font-bold text-white">Explore</h4>
+        <ul class="mt-3 space-y-2 text-sm">
+          <li><a class="hover:text-coral" href="#features">Features</a></li>
+          <li><a class="hover:text-coral" href="#benefits">Why Strida</a></li>
+          <li><a class="hover:text-coral" href="#reviews">Reviews</a></li>
+          <li><a class="hover:text-coral" href="#pricing">Pricing</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4 class="font-display font-bold text-white">Contact</h4>
+        <address class="mt-3 space-y-2 text-sm not-italic">
+          <p>hello@strida.example</p>
+          <p>+91 98765 43210</p>
+          <p>12 Race Course Road, Belagavi, Karnataka</p>
+        </address>
+      </div>
+
+      <div>
+        <h4 class="font-display font-bold text-white">Follow us</h4>
+        <ul class="mt-3 flex gap-3">
+          <li><a href="#" aria-label="Instagram" class="social">IG</a></li>
+          <li><a href="#" aria-label="X (Twitter)" class="social">X</a></li>
+          <li><a href="#" aria-label="YouTube" class="social">YT</a></li>
+          <li><a href="#" aria-label="LinkedIn" class="social">in</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="border-t border-white/10 px-5 py-5 text-center text-xs">
+      © <span id="year">2026</span> Strida. All rights reserved. Built for the Unlox Web Development Minor Project 02.
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
